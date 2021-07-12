@@ -1,0 +1,4 @@
+from flask import Flask, render_template
+
+from controllers.inventory_controller import manufacturers_blueprint
+from controllers.inventory_controller import products_blueprint
