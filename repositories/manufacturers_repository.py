@@ -14,5 +14,5 @@ def save(manufacturer):
     return manufacturer
 
 def delete_all():
-    sql = "DELETE FROM manufacturer"
+    sql = "DELETE FROM manufacturers"
     run_sql(sql)

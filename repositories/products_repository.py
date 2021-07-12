@@ -12,3 +12,7 @@ def save(product):
     id = results[0] ['id']
     product.id = id
     return product
+
+def delete_all():
+    sql = "DELETE FROM products"
+    run_sql(sql)
