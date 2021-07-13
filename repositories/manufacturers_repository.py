@@ -48,3 +48,15 @@ def update(manufacturer):
     sql = "UPDATE manufacturers SET (name) = (%s) WHERE id = %s"
     values = [manufacturer.name, manufacturer.id]
     run_sql(sql, values)
+
+def products(manufacturer):
+    products = []
+
+    sql = "SELECT * FROM products WHERE product_id = %s"
+    values = [manufacturer.id]
+    results = run_sql(sql, values)
+
+    for row in results:
+        product = Product(row['name'], row['description'], row['quantity'], row['buy_price'], row['sell_price'], row['manufacturer_id'], row ['id'])
+        products.append(product)
+    return products
