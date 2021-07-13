@@ -1,4 +1,5 @@
 from db.run_sql import run_sql
+from models import products
 
 from models.manufacturers import Manufacturer
 from models.products import Product
@@ -12,6 +13,15 @@ def save(product):
     id = results[0]['id']
     product.id = id
     return product
+
+def select_all():
+    products = []
+    sql = "SELECT * FROM prodcuts"
+    results = run_sql
+    for row in results:
+        product = Product(row ['name'], row ['id'])
+        products.append(product)
+    return products
 
 def delete_all():
     sql = "DELETE FROM products"
