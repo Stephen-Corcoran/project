@@ -14,8 +14,8 @@ manufacturers_repository.save (manufacturer1)
 manufacturer2 = Manufacturer ("we make stuff 2")
 manufacturers_repository.save(manufacturer2)
 
-product1 = Product ("name of product 1", "description of product 1", 100, 10, 15, manufacturer1)
+product1 = Product ("name of product 1", "description of product 1", 100, 10, 15,)
 products_repository.save(product1)
-product2 = Product ("name of product 2", "description of product 2", 200, 20, 40, manufacturer2)
-products_repository.save(product1)
+product2 = Product ("name of product 2", "description of product 2", 200, 20, 40,)
+products_repository.save(product2)
 
