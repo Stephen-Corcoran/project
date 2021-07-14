@@ -3,12 +3,17 @@
 
 <div class="products-container">
 
-    {% for products in all_products %}
+    {% for product in all_products %}
     <div class="product">
         <div class="content"> 
             <a href="/products/{{product.id}}">{{product.name}}<span>product!</span></a>
-            <div class="name">
-                product id: {{product.id}}
+            <div class="product">
+                <p>product id: {{product.id}}</p>
+                <p>name: {{product.name}}</p>
+                <p>description: {{product.description}}</p>
+                <p>quantity: {{product.quantity}}</p>
+                <p>buy price: {{product.buy_price}}</p>
+                <p>sell price: {{product.sell_price}}</p>
             </div>
             <div class="buttons">
             

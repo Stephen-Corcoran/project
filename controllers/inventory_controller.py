@@ -30,15 +30,16 @@ def show_manufacturers(id):
     manufacturer = manufacturers_repository.select(id)
     return render_template("manufacturers/show.html", manufacturer = manufacturer)
 
-@manufacturers_blueprint.route("/manufacturers/<id>", methods=['POST'])
+@manufacturers_blueprint.route("/manufacturers/edit/<id>", methods=['POST'])
 def update_manufacturers(id):
     name = request.form['name']
+    manufacturers = Manufacturer(name, id)
     print(manufacturers.name)
     manufacturers_repository.update(manufacturers)
-    return redirect('/manufacturers')
+    return redirect('/manufacturers/')
 
 @manufacturers_blueprint.route("/manufacturers/<id>/delete", methods=["POST"])
-def delete_manufacturers():
+def delete_manufacturers(id):
     manufacturers_repository.delete(id)
     return redirect('/manufacturers')
 
@@ -60,8 +61,8 @@ def create_manufacturer():
 
 @products_blueprint.route("/products/<id>", methods=['GET'])
 def show_products(id):
-    manufacturer = products_repositories.select(id)
-    return render_template("products/show.html", manufacturer = manufacturer)
+    product = products_repositories.select(id)
+    return render_template("products/show.html", products = product)
 
 @products_blueprint.route("/products/<id>", methods=['POST'])
 def update_products(id):
@@ -71,7 +72,7 @@ def update_products(id):
     return redirect('/products')
 
 @products_blueprint.route("/products/<id>/delete", methods=["POST"])
-def delete_products():
+def delete_products(id):
     products_repositories.delete(id)
     return redirect('/products')
 

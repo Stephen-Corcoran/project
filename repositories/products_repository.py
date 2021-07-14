@@ -17,12 +17,12 @@ def save(product):
 
 def select_all():
     products = []
-    sql = "SELECT * FROM prodcuts"
+    sql = "SELECT * FROM products"
     results = run_sql (sql)
     for row in results:
-        product = Product(row ['name'], row ['id'])
+        product = Product(row ['name'], row ['description'], row ['quantity'], row ['buy_price'], row ['sell_price'], row ['id'])
         products.append(product)
-    return products
+    return products 
 
 def select(id):
     product = None
@@ -31,7 +31,8 @@ def select(id):
     result = run_sql(sql, values)[0]
 
     if result is not None:
-        product = Product(result['name'])
+        product = Product(result ['name'], result ['description'], result ['quantity'], result ['buy_price'], result ['sell_price'], result ['id'])
+
     return product
 
 def delete_all():
